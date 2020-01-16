@@ -1,0 +1,31 @@
+#!/usr/bin/env php
+<?php
+/**
+ * parser
+ * Created by: 5-HT.
+ * Date: 16.01.2020 16:39
+ *
+ * ${PARAM_DOC}
+ * ${THROWS_DOC}
+ */
+
+
+require __DIR__ . '/vendor/autoload.php';
+
+/**
+ * $argv[0] - Команда
+ * $argv[1] - Ссылка
+ * $argv[N>1] - Не беру во внимание.
+ */
+
+$domain = $argv[1];
+if ($argc < 2) {
+    echo 'Введите домен: ';
+    fscanf(STDIN, "%s\n", $domain);
+}
+
+$report = new Src\Report\Report($domain);
+$report->printReport();
+
+
+exit(200);
